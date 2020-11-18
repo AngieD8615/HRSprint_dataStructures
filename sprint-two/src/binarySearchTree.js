@@ -51,7 +51,15 @@ biTreeMethods.contains = function (target) {
 },
 
 biTreeMethods.depthFirstLog = function (cb) {
-
+  this.value = cb(this.value);
+  if (this.left) {
+    let leftNode = this.left;
+    leftNode.depthFirstLog(cb);
+  }
+  if (this.right) {
+    let rightNode = this.right;
+    rightNode.depthFirstLog(cb);
+  }
 };
 
 
