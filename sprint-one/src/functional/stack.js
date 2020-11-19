@@ -4,17 +4,17 @@ var Stack = function() {
   someInstance.count = 0;
 
   // Use an object with numeric keys to store values
-  var storage = {};
+  someInstance.storage = {};
 
   // Implement the methods below
   someInstance.push = function(value) {
     someInstance.count++;
-    storage[someInstance.count] = value;
+    someInstance.storage[someInstance.count] = value;
   };
 
   someInstance.pop = function() {
     if (someInstance.count >= 1 ) {
-      let result = storage[someInstance.count];
+      let result = someInstance.storage[someInstance.count];
       someInstance.count--;
       return result;
     }
