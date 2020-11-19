@@ -1,29 +1,24 @@
-var Tree = function(value) {
+var Tree = function (value) {
   var newTree = {};
   newTree.value = value;
+  newTree.children = [];
 
-  // your code here
-  newTree.children = [];  // fix me
   _.extend(newTree, treeMethods);
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {
-  this.children.push(new Tree(value));
-  console.log(this.children);
+treeMethods.addChild = function (value) {
+  this.children.push(Tree(value));
 };
 
-treeMethods.contains = function(target) {
+treeMethods.contains = function (target) {
   let doesContain = false;
 
   helper = (child, target) => {
     if (child.value === target) {
       doesContain = true;
-      return;
-    }
-    if (child.children.length === 0) {
       return;
     }
 
@@ -37,11 +32,9 @@ treeMethods.contains = function(target) {
       helper(child, target);
     }
   });
+  // or you could use: helper(this, target);
   return doesContain;
-
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
